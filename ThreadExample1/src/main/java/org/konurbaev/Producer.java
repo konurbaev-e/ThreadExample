@@ -4,8 +4,8 @@ package org.konurbaev;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Producer implements Runnable {
-    Q q;
+class Producer implements Runnable {
+    private final Q q;
     private final static Logger logger = LoggerFactory.getLogger(Producer.class);
 
     Producer(Q q) {

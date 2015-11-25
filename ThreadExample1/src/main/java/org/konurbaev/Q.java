@@ -3,12 +3,12 @@ package org.konurbaev;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Q {
+class Q {
     private volatile int n;
     private volatile boolean valueSet = false;
     private final static Logger logger = LoggerFactory.getLogger(Q.class);
 
-    public synchronized int get(){
+    public synchronized void get(){
         logger.debug("Q.get is starting; valueSet = " + valueSet);
         while (!valueSet)
             try {
@@ -20,7 +20,6 @@ public class Q {
         valueSet = false;
         logger.debug("Q.get: got: " + n + "; valueSet = " + valueSet);
         notify();
-        return n;
     }
 
     public synchronized void put(int n){

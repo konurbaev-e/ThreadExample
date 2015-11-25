@@ -3,8 +3,8 @@ package org.konurbaev;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Consumer implements Runnable{
-    Q q;
+class Consumer implements Runnable{
+    private final Q q;
     private final static Logger logger = LoggerFactory.getLogger(Consumer.class);
 
     Consumer(Q q) {
