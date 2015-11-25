@@ -1,11 +1,15 @@
 package org.konurbaev;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Producer implements Runnable {
     Q q;
+    private final static Logger logger = LoggerFactory.getLogger(Producer.class);
 
     Producer(Q q) {
-        System.out.println("Producer.constructor is starting");
+        logger.debug("Producer.constructor is starting");
         this.q = q;
         new Thread(this, "ProducerThread").start();
     }
@@ -15,7 +19,7 @@ public class Producer implements Runnable {
         int i = 0;
 
         while (true) {
-            System.out.println("Producer.run: in while cycle");
+            logger.debug("Producer.run: in while cycle");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

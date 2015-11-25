@@ -1,10 +1,14 @@
 package org.konurbaev;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Consumer implements Runnable{
     Q q;
+    private final static Logger logger = LoggerFactory.getLogger(Consumer.class);
 
     Consumer(Q q) {
-        System.out.println("Consumer.constructor is running");
+        logger.debug("Consumer.constructor is running");
         this.q = q;
         new Thread(this, "ConsumerThread").start();
     }
@@ -12,7 +16,7 @@ public class Consumer implements Runnable{
     @Override
     public void run() {
         while (true) {
-            System.out.println("Consumer.run: in while cycle");
+            logger.debug("Consumer.run: in while cycle");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
