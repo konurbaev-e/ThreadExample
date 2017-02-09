@@ -19,7 +19,7 @@ class Queue {
             }
         valueSet = false;
         logger.debug("Queue.get: got: " + n + "; valueSet = " + valueSet);
-        notify();
+        notifyAll();
     }
 
     public synchronized void put(int n){
@@ -34,7 +34,7 @@ class Queue {
         this.n = n;
         valueSet = true;
         logger.debug("Queue.put: put: " + n + "; valueSet = " + valueSet);
-        notify();
+        notifyAll();
     }
 
 }
