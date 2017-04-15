@@ -3,5 +3,6 @@
 *.iws
 *.iml
 *.ipr
+*.log
 
 dependency-reduced-pom.xml
